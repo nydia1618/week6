@@ -24,6 +24,16 @@ export default function Home() {
           🧵 Recent Threads
         </h1>
         {/* Your Code Here  */}
+
+        {/*Llamamos a ThreadList y le pasamos la "gasolina" ( los datos) */}
+        <ThreadList
+          threads={recentThreads}
+          onSelect={(id) => {
+            //buscamos el hilo completo en el array usando el ID (como un findById en Mongo)
+            const thread = recentThreads.find(t => t.id ===id);
+            setSelectedThread(thread);
+          }}
+          />
       </Card>
     </Container>
   );
